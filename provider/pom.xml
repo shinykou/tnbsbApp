@@ -15,6 +15,10 @@
             <groupId>com.gxn</groupId>
             <artifactId>diamond.task</artifactId>
         </dependency>
+        <dependency>
+            <groupId>com.gxn</groupId>
+            <artifactId>diamond.domain</artifactId>
+        </dependency>
     </dependencies>
 
     <build>

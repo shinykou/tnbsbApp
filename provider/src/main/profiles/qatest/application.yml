@@ -43,7 +43,7 @@ message:
         teacherAppKey: 24750332
 
 kafka:
-    server: 172.19.157.213:9092
+    server: 127.0.0.1:9092
     acks: all
     retries: 2
     batch-size: 16384

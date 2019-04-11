@@ -33,4 +33,7 @@ public class ServiceImpl {
     public void delete(Model1 model1){
         System.out.println("doning");
     }
+
+
+
 }

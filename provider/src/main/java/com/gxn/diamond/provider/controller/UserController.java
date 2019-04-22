@@ -32,6 +32,7 @@ public class UserController {
 
     @RequestMapping(value = "/adduser")
     public String addUser(User user){
+        System.out.println(user);
         return userService.addUser(user);
 
     }

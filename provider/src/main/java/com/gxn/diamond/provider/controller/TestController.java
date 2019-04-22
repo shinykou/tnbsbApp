@@ -2,10 +2,14 @@ package com.gxn.diamond.provider.controller;
 
 
 
+import com.gxn.diamond.domain.model.AppInfo;
 import com.gxn.diamond.domain.model.Image;
+import com.gxn.diamond.domain.model.Product;
+import com.gxn.diamond.domain.model.ProductType;
 import com.gxn.diamond.service.KafKaService;
 import com.gxn.diamond.service.impl.FileService;
 import com.gxn.diamond.service.impl.ImageSrevice;
+import com.gxn.diamond.service.impl.ProductService;
 import lombok.Cleanup;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -26,18 +30,18 @@ public class TestController {
 
 
 
-    @Autowired
-    KafKaService kafKaService;
-    @RequestMapping(value = "/kafkasend")
-    public String testkafka(@RequestParam(value = "message") String message, @RequestParam(value = "topic") String topic){
-        try{
-            kafKaService.produce(message,topic);
-            return "kafka producer send success";
-        }catch (Exception e){
-            e.printStackTrace();
-            return "kafka producer send fail";
-        }
-    }
+//    @Autowired
+//    KafKaService kafKaService;
+//    @RequestMapping(value = "/kafkasend")
+//    public String testkafka(@RequestParam(value = "message") String message, @RequestParam(value = "topic") String topic){
+//        try{
+//            kafKaService.produce(message,topic);
+//            return "kafka producer send success";
+//        }catch (Exception e){
+//            e.printStackTrace();
+//            return "kafka producer send fail";
+//        }
+//    }
 
     @Autowired
     FileService fileService;
@@ -68,7 +72,35 @@ public class TestController {
         return images;
     }
 
+    @Autowired
+    ProductService productService;
+    @RequestMapping(value = "/getproducttype")
+    public List<ProductType> getAllProductType(){
+        List<ProductType> productTypes= Arrays.asList();
+        try{
+            productTypes=productService.getAllProductType();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return productTypes;
+    }
 
+    @RequestMapping(value = "/getproduct")
+    public List<Product> getProduct(
+            @RequestParam(value = "typeId") Integer typeId){
+        List<Product> products= Arrays.asList();
+        try{
+            products=productService.getProductByType(typeId);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return products;
+    }
+
+    @RequestMapping(value = "/getappinfo")
+    public AppInfo getAppInfo(){
+        return new AppInfo("眼镜超市","眼镜超市");
+    }
 
 
 

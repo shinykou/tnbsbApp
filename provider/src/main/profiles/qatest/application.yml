@@ -50,12 +50,12 @@ message:
 #    linger-ms: 2
 #    buffer-memory: 33554432
 
-    kafka:
-        consumer:
-          enable-auto-commit: true
-          group-id: applog
-          auto-offset-reset: latest
-          bootstrap-servers: 172.19.159.233:9092
+#    kafka:
+#        consumer:
+#          enable-auto-commit: true
+#          group-id: applog
+#          auto-offset-reset: latest
+#          bootstrap-servers: 172.19.159.233:9092
 
 spring.http.converters.preferred-json-mapper: fastjson
 

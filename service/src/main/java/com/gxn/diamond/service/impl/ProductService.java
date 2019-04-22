@@ -22,6 +22,9 @@ public class ProductService {
         return productDAO.getProductList(typeId);
     }
 
+    public Product getById(int id){
+        return productDAO.getProductById(id);
+    }
 
 
 }

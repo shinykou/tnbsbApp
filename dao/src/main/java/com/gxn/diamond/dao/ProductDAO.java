@@ -29,5 +29,7 @@ public interface ProductDAO {
     List<Product> getProductList(@Param("typeId") int typeId);
 
 
-
+    @Select("SELECT * FROM product_detail WHERE  id = #{id} "
+    )
+    Product getProductById(int id);
 }

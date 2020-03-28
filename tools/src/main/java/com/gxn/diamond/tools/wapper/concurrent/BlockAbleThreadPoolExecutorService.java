@@ -42,7 +42,7 @@ public class BlockAbleThreadPoolExecutorService {
 
         }
         countDownLatch.await();
-        System.out.println(stopwatch.stop().elapsed().get(SECONDS));
+        System.out.println(stopwatch.stop().elapsed(TimeUnit.SECONDS));
 
 
     }

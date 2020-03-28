@@ -10,7 +10,7 @@ import lombok.Data;
 @Data
 public class LocationForm {
 
-    private int userId;
+    private int userId,id;
     private String name ;
     private String phone;
     private String street;

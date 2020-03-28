@@ -3,10 +3,12 @@ package com.gxn.diamond.dao;
 import com.gxn.diamond.domain.form.LocationForm;
 import com.gxn.diamond.domain.model.Address;
 import org.apache.ibatis.annotations.*;
+import org.springframework.stereotype.Component;
 
+import java.util.List;
 import java.util.Set;
 
-
+@Component
 public interface IAddressDAO {
 
 
@@ -15,9 +17,18 @@ public interface IAddressDAO {
             "FROM " +
             "   address " +
             "WHERE " +
-            "   user_id=#{userId}"
+            "   user_id=#{userId} order by id desc"
     )
-    Set<Address> getByUserId(@Param("userId") int userId);
+    List<Address> getByUserId(@Param("userId") int userId);
+
+    @Select("SELECT " +
+            "  *  " +
+            "FROM " +
+            "   address " +
+            "WHERE " +
+            "   id=#{id}"
+    )
+    Address getById(@Param("id") int id);
 
     @Insert("INSERT " +
             "  INTO " +
@@ -49,7 +60,7 @@ public interface IAddressDAO {
             "SET " +
             "   name = #{name}," +
             "   phone = #{phone}," +
-            "   ared_id=#{aredId}," +
+            "   area_id=#{areaId}," +
             "   street = #{street}," +
             "   modified = NOW() " +
             "WHERE " +
@@ -64,4 +75,14 @@ public interface IAddressDAO {
             "WHERE  " +
             "   id= #{id} ")
     boolean deleteById(int id);
+
+    @Update("update address set is_first=1 where id=#{id} and user_id=#{userId}")
+    boolean setDefaultAddress1(@Param(value = "id") int id,@Param(value = "userId") int userId);
+
+    @Update("update address set is_first=0 where id <>#{id} and user_id=#{userId}")
+    boolean setDefaultAddress2(@Param(value = "id") int id,@Param(value = "userId") int userId);
+
+    @Select("select * from address where user_id=#{userId} and is_first=1")
+    List<Address> getDefaultAddress(@Param(value = "userId") int userId);
+
 }

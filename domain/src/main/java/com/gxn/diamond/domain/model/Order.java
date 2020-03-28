@@ -7,9 +7,10 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Product {
-    int id;
-    String title,imgUrls,name,content;
-    int typeId,status,inventory;
-    float price;
+public class Order {
+    long id;
+    int userId,status,addressId;
+    String productIds,productNames,productImgs,numbers;
+    double price,discountPrice,payPrice;
+
 }

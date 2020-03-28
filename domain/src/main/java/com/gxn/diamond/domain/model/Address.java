@@ -14,4 +14,6 @@ public class Address {
     private String street;
     private String created;
     private String modified;
+    private int isFirst;
+
 }

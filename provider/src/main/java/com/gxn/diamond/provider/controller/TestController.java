@@ -6,7 +6,7 @@ import com.gxn.diamond.domain.model.AppInfo;
 import com.gxn.diamond.domain.model.Image;
 import com.gxn.diamond.domain.model.Product;
 import com.gxn.diamond.domain.model.ProductType;
-import com.gxn.diamond.service.KafKaService;
+//import com.gxn.diamond.service.KafKaService;
 import com.gxn.diamond.service.impl.FileService;
 import com.gxn.diamond.service.impl.ImageSrevice;
 import com.gxn.diamond.service.impl.ProductService;
@@ -21,6 +21,7 @@ import javax.servlet.http.*;
 import java.awt.image.BufferedImage;
 import java.io.*;
 import java.util.Arrays;
+import java.util.Date;
 import java.util.List;
 
 
@@ -72,35 +73,27 @@ public class TestController {
         return images;
     }
 
-    @Autowired
-    ProductService productService;
-    @RequestMapping(value = "/getproducttype")
-    public List<ProductType> getAllProductType(){
-        List<ProductType> productTypes= Arrays.asList();
-        try{
-            productTypes=productService.getAllProductType();
-        }catch (Exception e){
-            e.printStackTrace();
-        }
-        return productTypes;
-    }
 
-    @RequestMapping(value = "/getproduct")
-    public List<Product> getProduct(
-            @RequestParam(value = "typeId") Integer typeId){
-        List<Product> products= Arrays.asList();
-        try{
-            products=productService.getProductByType(typeId);
-        }catch (Exception e){
-            e.printStackTrace();
-        }
-        return products;
-    }
+
+
+
+
+
+
 
     @RequestMapping(value = "/getappinfo")
     public AppInfo getAppInfo(){
         return new AppInfo("眼镜超市","眼镜超市");
     }
+
+
+//    @Autowired
+//    KafKaService kafKaService;
+//    @RequestMapping(value = "/kafkasent")
+//    public String kafkaSend(@RequestParam(value = "content") String content){
+//        kafKaService.produce(content,"test1");
+//        return "send success";
+//    }
 
 
 

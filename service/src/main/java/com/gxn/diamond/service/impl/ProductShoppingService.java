@@ -24,7 +24,7 @@ public class ProductShoppingService {
         try{
             Integer id = shoppingCarDAO.getByUserIdProduct(userId,productId);
             if ( id !=null)shoppingCarDAO.updateNum(id,num);
-            return shoppingCarDAO.add2ShopCar(new ShopingCar(userId,productId,num,productService.getById(productId)));
+            return shoppingCarDAO.add2ShopCar(new ShopingCar(userId,productId,num,productService.getById(productId+"").get(0)));
         }catch (Exception e){
             log.error("addProduct",e);
         }

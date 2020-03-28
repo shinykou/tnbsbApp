@@ -1,6 +1,7 @@
 package com.gxn.diamond.service.impl;
 
 import com.google.common.collect.Lists;
+import com.google.common.collect.Sets;
 import com.gxn.diamond.dao.IAddressDAO;
 import com.gxn.diamond.dao.IAreaDAO;
 import com.gxn.diamond.domain.form.LocationForm;
@@ -29,21 +30,32 @@ public class LocationServiceImpl implements ILocationService {
     @Autowired private IAddressDAO addressDAO;
     @Autowired private IAreaDAO areaDAO;
 
-    @Override
-    public List<LocationVO> getUserLocationList(int userId) {
+//    @Override
+//    public List<LocationVO> getUserLocationList(int userId) {
+//        try{
+//            Set<Address> allAddress = addressDAO.getByUserId(userId);
+//            return allAddress.stream().map(address -> new LocationVO(address,getAreaLinkByChildId(address.getAreaId()))).collect(Collectors.toList());
+//        }catch (Exception e){
+//            log.error("getUserLocationList",e);
+//            return Lists.newArrayList();
+//        }
+//    }
+
+    public List<Address> getAddressByUserId(int userId){
+        List<Address> address= Lists.newArrayList();
         try{
-            Set<Address> allAddress = addressDAO.getByUserId(userId);
-            return allAddress.stream().map(address -> new LocationVO(address,getAreaLinkByChildId(address.getAreaId()))).collect(Collectors.toList());
+            address = addressDAO.getByUserId(userId);
         }catch (Exception e){
-            log.error("getUserLocationList",e);
-            return Lists.newArrayList();
+            log.error("getAddressByUserId",e);
         }
+        return address;
+
     }
 
     @Override
     public boolean addNewLocation(LocationForm locationForm) {
         try{
-            getAreaLinkByChildId(locationForm.getAreaId());
+//            getAreaLinkByChildId(locationForm.getAreaId());
             addressDAO.addAddress(locationForm);
             return true;
         }catch (Exception e){
@@ -54,7 +66,7 @@ public class LocationServiceImpl implements ILocationService {
 
     @Override
     public boolean updateLocation(LocationForm locationForm) {
-        getAreaLinkByChildId(locationForm.getAreaId());
+        //getAreaLinkByChildId(locationForm.getAreaId());
         return addressDAO.update(locationForm);
     }
 
@@ -81,5 +93,19 @@ public class LocationServiceImpl implements ILocationService {
             Assert.state(null != firstChild && firstChild.getLevel()!=3,"area not true");
         }
     }
+
+    public boolean setDefaultAddress(int id,int userId){
+        return(addressDAO.setDefaultAddress1(id,userId)&&addressDAO.setDefaultAddress2(id,userId));
+    }
+
+    public List<Address> getDefaultAddress(int userId){
+        return addressDAO.getDefaultAddress(userId);
+    }
+
+    public Address getAddressById(int id){
+        return addressDAO.getById(id);
+    }
+
+
 
 }

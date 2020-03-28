@@ -19,5 +19,6 @@
         <!-- null值数据库映射 -->
         <setting name="jdbcTypeForNull" value="NULL"/>
         <setting name="logImpl" value="LOG4J"/>
+        <!--<setting name="allowMultiQueries=true " value="true"/>-->
     </settings>
 </configuration>  

@@ -16,7 +16,7 @@ public interface ILocationService {
 
 
 
-    List<LocationVO> getUserLocationList(int userId);
+    //List<LocationVO> getUserLocationList(int userId);
 
     boolean addNewLocation(LocationForm locationForm);
 

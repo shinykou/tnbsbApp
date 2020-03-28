@@ -22,8 +22,17 @@ public class ProductService {
         return productDAO.getProductList(typeId);
     }
 
-    public Product getById(int id){
+    public List<Product> getById(String id){
         return productDAO.getProductById(id);
+    }
+
+    public String addProduct(Product product){
+        int i=0;
+        i=productDAO.addProduct(product);
+        if(i>0){
+            return "add product success!";
+        }else return "add product fail!";
+
     }
 
 

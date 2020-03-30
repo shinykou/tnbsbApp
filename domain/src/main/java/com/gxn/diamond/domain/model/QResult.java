@@ -22,6 +22,7 @@ public class QResult {
     String phone;
     double bmi;
     double score;
+    String modified,created;
 
 
 

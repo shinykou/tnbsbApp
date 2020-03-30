@@ -24,5 +24,8 @@ public interface IQuestionDAO {
     @Options(useGeneratedKeys = true,keyProperty = "id",keyColumn = "id")
     int saveResult(QResult qResult);
 
+    @Select({"select * from questionair.result_data"})
+    List<QResult> getAllResults();
+
 
 }

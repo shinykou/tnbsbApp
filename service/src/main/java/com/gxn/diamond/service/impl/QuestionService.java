@@ -7,6 +7,7 @@ import com.gxn.diamond.domain.vo.QuestionVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -38,6 +39,12 @@ public class QuestionService {
         System.out.println(qResult);
         return qResult;
     }
+
+    public List<QResult> getAllResults(){
+        return questionDAO.getAllResults();
+    }
+
+
 
 
 }

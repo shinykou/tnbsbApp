@@ -36,7 +36,7 @@ public class QuestionairController {
     @ResponseBody
     public String downExcel(HttpServletResponse response) throws UnsupportedEncodingException {
 
-        String fileName = "糖尿病生病问卷结果数据.csv";
+        String fileName = "糖尿病肾病问卷结果数据.csv";
 
         // 如果文件名不为空，则进行下载
         if (fileName != null) {
@@ -46,7 +46,6 @@ public class QuestionairController {
                 response.setContentType("application/octet-stream; charset=utf-8");
                 response.setHeader("Content-Disposition", "attachment; filename=" + new String(fileName.getBytes(),"ISO8859-1"));
                 StringBuffer sb=new StringBuffer("phone,age,smoke,eye,height,weight,bmi,hba1c,sbp,hdlc,tg,uacr,score\n");
-
 
                 for(QResult qResult:questionService.getAllResults()){
                     sb.append(qResult.getPhone()+",");
@@ -64,7 +63,6 @@ public class QuestionairController {
                     sb.append(qResult.getScore()+",");
                     sb.append('\n');
                 }
-
 
                 byte[] bytes = sb.toString().getBytes("GBK");
                 os = response.getOutputStream();

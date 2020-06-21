@@ -39,7 +39,7 @@ public class QResult {
 
         if(age>=50 && age<60){
             score+=3;
-        }else if (age>=60 && age<75){
+        }else if (age>=60){
             score+=6;
         }
 

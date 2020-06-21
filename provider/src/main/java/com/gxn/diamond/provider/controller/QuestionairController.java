@@ -82,8 +82,6 @@ public class QuestionairController {
                 }
             }
         }
-
-
         return "";
     }
 

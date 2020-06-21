@@ -28,7 +28,7 @@ public class QResult {
 
     public void setScore(){
         double score=0;
-        score=score+age+smoke+eye;
+        score=score+smoke+eye;
 
         this.bmi=calculateBmi(height,weight);
         if(bmi>=24.0 && bmi<28.0){
@@ -36,6 +36,13 @@ public class QResult {
         }else if(bmi>=28.0){
             score+=3;
         }
+
+        if(age>=50 && age<60){
+            score+=3;
+        }else if (age>=60 && age<75){
+            score+=6;
+        }
+
 
         if(uacr>=10 && uacr<20){
             score+=2;

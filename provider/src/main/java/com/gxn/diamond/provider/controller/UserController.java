@@ -1,5 +1,6 @@
 package com.gxn.diamond.provider.controller;
 
+import com.alibaba.fastjson.JSONObject;
 import com.gxn.diamond.domain.form.LocationForm;
 import com.gxn.diamond.domain.model.Address;
 import com.gxn.diamond.domain.model.User;
@@ -91,6 +92,10 @@ public class UserController {
         return locationService.getAddressById(id);
     }
 
+    @RequestMapping(value = "/getOpenId")
+    public JSONObject getOpenId(@RequestParam(value = "code") String code){
+        return userService.getOpenId(code);
+    }
 
 
 }

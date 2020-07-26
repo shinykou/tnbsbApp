@@ -45,12 +45,17 @@ public class QuestionairController {
                 response.reset();
                 response.setContentType("application/octet-stream; charset=utf-8");
                 response.setHeader("Content-Disposition", "attachment; filename=" + new String(fileName.getBytes(),"ISO8859-1"));
-                StringBuffer sb=new StringBuffer("phone,age,smoke,eye,height,weight,bmi,hba1c,sbp,hdlc,tg,uacr,score\n");
+                StringBuffer sb=new StringBuffer("phone,openId,age,gender,smoke,gaoxueya,tangniaobing,eye,height,weight,bmi,hba1c,sbp,hdlc,tg,ldlc,uacr,scr,sua,score,modified,created\n");
+
 
                 for(QResult qResult:questionService.getAllResults()){
                     sb.append(qResult.getPhone()+",");
+                    sb.append(qResult.getOpenId()+",");
                     sb.append(qResult.getAge()+",");
+                    sb.append(qResult.getGender()+",");
                     sb.append(qResult.getSmoke()+",");
+                    sb.append(qResult.getGaoxueya()+",");
+                    sb.append(qResult.getTangniaobing()+",");
                     sb.append(qResult.getEye()+",");
                     sb.append(qResult.getHeight()+",");
                     sb.append(qResult.getWeight()+",");
@@ -59,8 +64,13 @@ public class QuestionairController {
                     sb.append(qResult.getSbp()+",");
                     sb.append(qResult.getHdlc()+",");
                     sb.append(qResult.getTg()+",");
+                    sb.append(qResult.getLdlc()+",");
                     sb.append(qResult.getUacr()+",");
+                    sb.append(qResult.getScr()+",");
+                    sb.append(qResult.getSua()+",");
                     sb.append(qResult.getScore()+",");
+                    sb.append(qResult.getCreated()+",");
+                    sb.append(qResult.getModified()+",");
                     sb.append('\n');
                 }
 

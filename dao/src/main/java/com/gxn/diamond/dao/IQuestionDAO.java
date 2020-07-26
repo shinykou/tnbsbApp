@@ -20,7 +20,31 @@ public interface IQuestionDAO {
     List<OptionItem> getOptionItemsByQuestion(@Param("questionId") int questionId);
 
 
-    @Insert({"Replace into questionair.result_data (phone,age,smoke,eye,height,weight,hba1c,sbp,hdlc,tg,uacr,bmi,score,modified,created) values(#{phone},#{age},#{smoke},#{eye},#{height},#{weight},#{hba1c},#{sbp},#{hdlc},#{tg},#{uacr},#{bmi},#{score},now(),now())"})
+    @Insert({"Replace into questionair.result_data (" +
+            "age,"+
+            "gender,"+
+            "smoke,"+
+            "gaoxueya,"+
+            "tangniaobing,"+
+            "eye,"+
+            "height,"+
+            "weight,"+
+            "hba1c,"+
+            "sbp,"+
+            "hdlc,"+
+            "tg,"+
+            "ldlc,"+
+            "uacr,"+
+            "scr,"+
+            "sua,"+
+            "phone,"+
+            "openId,"+
+            "bmi,"+
+            "score,"+
+            "modified," +
+            "created" +
+            ") " +
+            "values(#{age},#{gender},#{smoke},#{gaoxueya},#{tangniaobing},#{eye},#{height},#{weight},#{hba1c},#{sbp},#{hdlc},#{tg},#{ldlc},#{uacr},#{scr},#{sua},#{phone},#{openId},#{bmi},#{score},now(),now())"})
     @Options(useGeneratedKeys = true,keyProperty = "id",keyColumn = "id")
     int saveResult(QResult qResult);
 

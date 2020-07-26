@@ -127,6 +127,9 @@ public class QResult {
             score+=4;
         }
 
+        if(score>37){
+            score=37;
+        }
         this.score=score;
 
 

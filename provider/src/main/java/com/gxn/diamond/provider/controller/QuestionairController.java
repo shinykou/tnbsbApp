@@ -46,8 +46,6 @@ public class QuestionairController {
                 response.setContentType("application/octet-stream; charset=utf-8");
                 response.setHeader("Content-Disposition", "attachment; filename=" + new String(fileName.getBytes(),"ISO8859-1"));
                 StringBuffer sb=new StringBuffer("phone,openId,age,gender,smoke,gaoxueya,tangniaobing,eye,height,weight,bmi,hba1c,sbp,hdlc,tg,ldlc,uacr,scr,sua,score,modified,created\n");
-
-
                 for(QResult qResult:questionService.getAllResults()){
                     sb.append(qResult.getPhone()+",");
                     sb.append(qResult.getOpenId()+",");

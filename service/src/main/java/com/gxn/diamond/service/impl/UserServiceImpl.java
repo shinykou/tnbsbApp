@@ -59,7 +59,7 @@ public class UserServiceImpl {
    }
 
     public JSONObject getOpenId(String code){
-        String url="https://api.weixin.qq.com/sns/jscode2session?appid=wxaa4696b6ff0a313a&secret=baf00005f46fbeed93261c99e48d497e&js_code=CODE&grant_type=authorization_code";
+        String url="https://api.weixin.qq.com/sns/jscode2session?appid=wx1b9450c08e34e714&secret=2d7490663790b86795a3cccc87c3af57&js_code=CODE&grant_type=authorization_code";
         return HttpClientUtil.doGet(url.replace("CODE",code));
     }
 

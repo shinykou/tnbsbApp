@@ -51,14 +51,18 @@ public class UserController {
     public String addAddressByUser(LocationForm locationForm){
         if(locationService.addNewLocation(locationForm)){
             return "add address success!";
-        }else return "add address fail!";
+        }else {
+            return "add address fail!";
+        }
     }
 
     @RequestMapping(value = "/deleteaddressbyid")
     public String deleteAddressById(@RequestParam(value = "id") int id){
         if(locationService.deleteLocation(id)){
             return "delete address success!";
-        }else return "delete address fail!";
+        }else {
+            return "delete address fail!";
+        }
     }
 
     @RequestMapping(value = "/getaddressbyuser")

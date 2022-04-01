@@ -77,9 +77,9 @@ public class QResult {
          */
         if(uacr>=10 && uacr<20){
             score+=2;
-        }else if(uacr>=20 && uacr<=30){
+        }else if(uacr>=20 && uacr<30){
             score+=4;
-        }else if (uacr>30){
+        }else if (uacr>=30){
             score+=37;
         }
 

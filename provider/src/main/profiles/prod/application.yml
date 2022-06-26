@@ -14,7 +14,7 @@ jetty:
 https:
   port: 8777
   #keystore-password: 9jx888d35h16rs0
-  keystore-password: j08w1rdv1kljih
+  keystore-password: do70z2df19z
   keystore: /home/ljl/code/tjyddx.cn.jks
   #keystore: provider/src/main/resources/tjyddx.cn.jks
   keystore-type: JKS

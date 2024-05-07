@@ -16,7 +16,9 @@ https:
 #  keystore-password: 9jx888d35h16rs0
   #keystore-password: do70z2df19z
    #update pwd by andon in 05-25-2023
-  keystore-password: v65w4dh3vkq2f92
+ # keystore-password: v65w4dh3vkq2f92
+  #update pwd by andon in 2024年5月7日 15:40:14
+  keystore-password: l1l3my2396yp31a
   keystore: /home/ljl/code/tjyddx.cn.jks
   #keystore: provider/src/main/resources/tjyddx.cn.jks
   keystore-type: JKS
